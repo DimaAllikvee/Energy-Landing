@@ -941,7 +941,7 @@ body {
     padding: 30px;
     display: flex;
     flex-direction: column;
-    width: 250px;
+
     height: 181px;
     border-radius: 23px;
     border: 0.5px solid #ccc; /* Или var(--color-light-grey) */
@@ -955,10 +955,11 @@ body {
 }
 
 .service-title {
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 600;
     margin-bottom: auto;
     color: #333;
+
 }
 
 .view-details {
@@ -1021,5 +1022,11 @@ body {
     }
     .services-image {
         height: 300px; /* Или auto */
+    }
+}
+
+@media (max-width: 1208px) {
+    .service-title {
+        font-size: 15px;
     }
 }
