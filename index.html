@@ -5,71 +5,214 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0"/>
     <title>Energy Landing</title>
-    <link rel="stylesheet" href="./Styles.css"/>
-    <script src="./js/script.js" defer></script>
+    <link rel="stylesheet" href="Styles.css"/>
+    <script src="/js/script.js" defer></script>
 </head>
 <body>
 
 <header class="header">
     <div class="header-inner">
 
-        <!-- Логотип -->
-        <a class="header-logo" href="/">
-            <img src="./images/Logo.png"
-                 alt="Energy Logo"
-                 class="header-logo-image"
-                 width="78" height="42" loading="lazy" />
-        </a>
+        <!-- Левая часть (зелёная полоса + название) -->
+        <div class="header-left">
+            <div class="logo-bar"></div>
+            <span class="logo-text">Xurya</span>
+        </div>
+
+        <!-- Гамбургер-кнопка (только на мобильных) -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
 
         <!-- Навигация -->
-        <nav class="header-menu">
-            <ul class="header-menu-list">
-                <li class="header-menu-item">
-                    <!-- Активная страница "Home" -->
-                    <a href="/" class="header-menu-link active"
-                       data-lng-key="navHome">Home</a>
-                </li>
-                <li class="header-menu-item">
-                    <a href="/" class="header-menu-link"
-                       data-lng-key="navProduct">About us</a>
-                </li>
-                <li class="header-menu-item">
-                    <a href="/" class="header-menu-link"
-                       data-lng-key="navServices">Features</a>
-                </li>
-                <li class="header-menu-item">
-                    <a href="/" class="header-menu-link"
-                       data-lng-key="navAboutUs">Services</a>
-                </li>
-                <li class="header-menu-item">
-                    <a href="/" class="header-menu-link"
-                       data-lng-key="navContact">Contact</a>
-                </li>
+        <nav class="header-nav" id="header-nav">
+            <ul class="nav-list">
+                <li><a href="#" class="nav-link active">Home</a></li>
+                <li><a href="#" class="nav-link">About us</a></li>
+                <li><a href="#" class="nav-link">Features</a></li>
+                <li><a href="#" class="nav-link">Services</a></li>
+                <li><a href="#" class="nav-link">Contact</a></li>
             </ul>
         </nav>
 
-        <!-- Доп. кнопка (например, выбор языка) -->
-        <div class="header-actions">
-            <button class="header-language-button button" type="button"
-                    id="lang-btn" data-lng-key="langButton">
-                ENG/EST
-            </button>
+        <!-- Правая часть (Login + зелёная кнопка) -->
+        <div class="header-right">
+            <a href="#" class="login-link">Login</a>
+            <button class="header-button">Get in Touch</button>
         </div>
 
-        <div class="header-actions">
-            <button class="header-login-button button" type="button">
-                Get in Touch
-                </button>
+    </div><!-- /.header-inner -->
+</header>
+
+<main>
+
+    <section class="hero">
+        <!-- Текст слева -->
+        <div class="hero-content">
+            <p class="hero-subtitle">#1 Energy provider in the world</p>
+            <h1 class="hero-title">
+                <span class="gradient-text">New Energy</span><br>
+                <span class="gradient-text">for the Future</span>
+            </h1>
+            <div class="hero-links">
+                <a href="#" class="hero-link">Get in touch</a>
+                <a href="#" class="hero-link">Our services</a>
+            </div>
         </div>
 
-    </div>
+        <!-- Блок статистики -->
+        <div class="stats-block">
+            <div class="stat-item">
+                <span class="stat-value">6mil</span>
+                <p class="stat-label">The company's annual net income</p>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">315</span>
+                <p class="stat-label">Projects completed worldwide</p>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">120K</span>
+                <p class="stat-label">Employees work in all parts of the world</p>
+            </div>
+        </div>
+    </section>
 
-    </header>
 
-<main class="content">
+    <section class="quality-section">
+        <div class="quality-container">
+
+            <!-- Левая часть (большой заголовок) -->
+            <div class="quality-left">
+                <h2 class="quality-title">
+                    Focusing on quality, we<br>
+                    maintain customer trust
+                </h2>
+            </div>
+
+            <!-- Правая часть (доп. текст) -->
+            <div class="quality-right">
+                <p class="quality-text">
+                    We ensure that every installation we build has strict quality checks.
+                    Sustainable solutions for an environmentally friendly and renewable future.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="features-container">
+        <div class="section-title">
+            <h2><strong>We offer quality,</strong> <span>with the best materials and service</span></h2>
+        </div>
+
+        <div class="features-grid">
+            <!-- Feature 1 -->
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <img src="icons/Layered.svg" alt="Layered security">
+                </div>
+                <h3 class="feature-title">Layered security</h3>
+                <p class="feature-description">With layered security, we ensure the safety of every unit we provide.</p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <img src="icons/Quality.svg" alt="Quality control">
+                </div>
+                <h3 class="feature-title">Quality control of each part</h3>
+                <p class="feature-description">Every unit you send is checked carefully for every detail.</p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <img src="icons/Service.svg" alt="Reliable service">
+                </div>
+                <h3 class="feature-title">Reliable customer service</h3>
+                <p class="feature-description">Our customer service is available 24 hours a week, with qualified people.</p>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <img src="icons/Book.svg" alt="Maintenance manual">
+                </div>
+                <h3 class="feature-title">Maintenance manual book</h3>
+                <p class="feature-description">We provide a guidebook that can be used to ensure maximum care.</p>
+            </div>
+
+            <!-- Feature 5 -->
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <img src="icons/Delivered.svg" alt="Delivered safely">
+                </div>
+                <h3 class="feature-title">Delivered safely</h3>
+                <p class="feature-description">Every unit we send arrives safely and quickly, without any obstacles or drama.</p>
+            </div>
+
+            <!-- Feature 6 -->
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <img src="icons/Ai.svg" alt="AI-based">
+                </div>
+                <h3 class="feature-title">Based on artificial intelligence</h3>
+                <p class="feature-description">You can control and view each unit from your phone, it's very easy to use.</p>
+            </div>
+        </div>
+    </section>
 
 
+    <section class="services-container">
+        <div class="services-wrapper">
+            <div class="services-content">
+                <div class="section-title">
+                    <h2>Trusted service,</h2>
+                    <p>for your various needs</p>
+                </div>
 
+                <a href="#" class="cta-button">Get in touch</a>
+
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="service-item">
+                        <div class="service-number">01</div>
+                        <h3 class="service-title">Solar panels for home</h3>
+                        <a href="#" class="view-details">View Details</a>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="service-item">
+                        <div class="service-number">02</div>
+                        <h3 class="service-title">Solar panels for industry</h3>
+                        <a href="#" class="view-details">View Details</a>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="service-item">
+                        <div class="service-number">03</div>
+                        <h3 class="service-title">Solar panels for chargers</h3>
+                        <a href="#" class="view-details">View Details</a>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="service-item">
+                        <div class="service-number">04</div>
+                        <h3 class="service-title">Wind power generator</h3>
+                        <a href="#" class="view-details">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="services-image">
+                <img src="images/Trusted%20service.png" alt="Solar panels in field">
+            </div>
+        </div>
+    </section>
 
 </main>
 
+</body>
+</html>
