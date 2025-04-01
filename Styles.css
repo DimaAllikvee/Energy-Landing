@@ -355,9 +355,9 @@ body {
 }
 .nav-link {
     text-decoration: none;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 500;
-    color: #000;
+    color: var(--color-dark);
     position: relative;
     transition: color 0.2s;
 }
@@ -752,22 +752,21 @@ body {
 
 
 
-.section-title {
-    text-align: center;
+.section-title-features {
     margin-bottom: 120px;
 }
 
-.section-title h2 {
-    font-size: 32px;
+.section-title-features h2 {
+    font-size: 48px;
     font-weight: 600;
     margin-bottom: 10px;
 }
 
-.section-title h2 strong {
+.section-title-features h2 strong {
     color: var(--color-dark);
 }
 
-.section-title h2 span {
+.section-title-features h2 span {
     color: var(--color-light-grey);
 }
 
@@ -1030,3 +1029,410 @@ body {
         font-size: 15px;
     }
 }
+
+/* --- БАЗОВЫЕ СТИЛИ --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Avenir-Regular', sans-serif;
+}
+
+/* --- СЕКЦИЯ --- */
+.testimonial-section {
+    width: 100%;
+    padding: 80px 100px;  /* Отступы сверху/снизу, слева/справа */
+    background-color: var(--color-light); /* по желанию */
+}
+
+/* Внутренний контейнер (центрируем + макс. ширина) */
+.testimonial-container {
+    max-width: 1200px; /* или 1920px, если хотите */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 140px;
+}
+
+/* Большой заголовок */
+.testimonial-heading h2 {
+    font-size: 48px;
+    text-align: center;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--color-dark);
+}
+.testimonial-heading h2 span {
+    color: var(--color-light-grey); /* "right on target" серым */
+}
+
+/* Обёртка для 2 колонок: слева текст, справа картинка */
+.testimonial-wrapper {
+    display: flex;
+    align-items: flex-start;   /* выравниваем по верхнему краю */
+    justify-content: space-between;
+    gap: 203px;
+}
+
+/* Левая колонка */
+.testimonial-left {
+    flex: 1;                  /* занимает всё доступное пространство */
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Заголовок "Medtronic" */
+.company-name {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--color-dark);
+}
+
+/* Основной текст отзыва */
+.testimonial-text {
+    font-size: 30px;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* Кнопка */
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-green);
+    color: var(--color-light);
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 16px;
+    width: fit-content;
+}
+
+/* Автор отзыва */
+.testimonial-author {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--color-dark);
+
+}
+.testimonial-author span {
+    color: var(--color-light-grey);
+}
+
+/* Правая колонка (картинка) */
+.testimonial-right {
+    flex: 0 0 460px; /* фиксированная ширина 460px */
+    border-radius: 40px;
+    overflow: hidden;
+    height: 460px;   /* или 616px, если нужно больше */
+}
+.testimonial-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 40px;
+}
+
+/* Нижняя полоска (иконки) */
+.services-strip {
+    border-top: 1px solid var(--color-light);
+    padding-top: 20px;
+    margin-top: 20px;
+}
+.services-strip ul {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+.services-strip li {
+    font-size: 14px;
+    color: var(--color-light-grey);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ---------- Адаптивность ---------- */
+@media (max-width: 1200px) {
+    .testimonial-section {
+        padding: 60px 50px;
+    }
+    .testimonial-wrapper {
+        flex-direction: column;  /* В столбик */
+        align-items: flex-start;
+        gap: 60px;
+    }
+    .testimonial-right {
+        width: 100%;
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonial-section {
+        padding: 40px 20px;
+    }
+    .testimonial-heading h2 {
+        font-size: 36px;
+    }
+    .company-name {
+        font-size: 20px;
+    }
+    .testimonial-text {
+        font-size: 14px;
+    }
+    .testimonial-right {
+        height: 300px;
+        border-radius: 20px;
+    }
+}
+
+.services-switch {
+    /* Контейнер, центрируем элементы */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    padding: 0 20px;
+    margin-top: -55px;    /* Отступ сверху, если нужно */
+}
+
+.switch-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Текст по центру */
+    gap: 10px;           /* Расстояние между линией и текстом */
+}
+
+/* Обёртка линии */
+.switch-line {
+    position: relative;
+    width: 160px; /* Общая ширина линии */
+    height: 2px;  /* Толщина линии */
+    display: flex;
+    overflow: hidden; /* чтобы линии не вылезали */
+}
+
+/* Зелёная часть */
+.line-green {
+    background-color: var(--color-green);
+    height: 2px;
+    width: 40px;   /* длина зелёной части */
+    flex-shrink: 0;
+}
+
+/* Серая часть */
+.line-grey {
+    background-color: var(--color-light-grey);
+    height: 2px;
+    flex: 1;       /* чтобы растягивалась */
+}
+
+/* Если вся линия серая */
+.line-grey.full {
+    width: 100%;
+}
+
+/* Когда элемент «активный», зелёная часть + серая */
+.switch-item.active .line-green {
+    width: 40px;  /* например, 40px */
+}
+.switch-item.active .line-grey {
+    background-color: var(--color-light-grey); /* или #ccc, на вкус */
+}
+
+/* Текст под линией */
+.switch-label {
+    font-size: 14px;
+    color: var(--color-light-grey);
+    display: flex;
+    align-items: center;
+    gap: 6px; /* отступ между иконкой и текстом */
+}
+.switch-label img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+
+
+/* Footer Styles */
+.footer {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+}
+
+.logo-text-footer{
+    font-size: 18px;
+    color: var(--color-light);
+}
+
+.footer-main {
+    display: flex;
+    justify-content: space-between;
+    padding: 60px 21%;
+    gap: 40px;
+}
+
+.footer-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.footer-title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 30px;
+}
+
+.footer-title span {
+    color: var(--color-light-grey);
+    font-weight: normal;
+}
+
+.footer-features {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+
+.footer-feature {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.check-icon {
+    width: 24px;
+    height: 24px;
+    background-color: #00cc88;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.check-icon:after {
+    content: "✓";
+    color: #0e0808;
+    font-weight: bold;
+}
+
+.footer-cta {
+    flex: 1;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer-cta p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.footer-button {
+    align-self: flex-start;
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    border-radius: 20px;
+    padding: 10px 35px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Footer navigation */
+.footer-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 21%;
+    border-top: 1px solid #333;
+}
+
+.footer-links .nav-list {
+    display: flex;
+    list-style: none;
+    gap: 50px;
+}
+
+.footer-links .nav-link {
+    color: var(--color-light);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-link {
+    width: 32px;
+    height: 32px;
+    background-color: #333;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-link img {
+    width: 16px;
+    height: 16px;
+    filter: brightness(0) invert(1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer-main {
+        flex-direction: column;
+        padding: 40px 5%;
+    }
+
+    .footer-title {
+        font-size: 2rem;
+    }
+
+    .footer-nav {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px 5%;
+    }
+
+    .footer-links .nav-list {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* Правая часть: соцсети */
+.footer-right {
+    display: flex;
+    gap: 20px;  /* Расстояние между иконками */
+}
+
+.footer-right a {
+    display: inline-flex;
+    width: 32px;
+    height: 32px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: transparent; /* или #333, если хотите кружок */
+    transition: background-color 0.2s;
+}
+.footer-right a:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.footer-right img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    filter: brightness(0) invert(1); /* Чтобы иконки были белые, если исходник темный */
+}
+
