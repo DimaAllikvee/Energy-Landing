@@ -104,8 +104,12 @@
 
     <section class="features-container">
         <div class="section-title-features">
-            <h2><strong>We offer quality,</strong> <span>with the best materials and service</span></h2>
+            <h2>
+                <strong>We offer quality,</strong><br>
+                <span>with the best materials and service</span>
+            </h2>
         </div>
+
 
         <div class="features-grid">
             <!-- Feature 1 -->
@@ -173,7 +177,65 @@
                     <p>for your various needs</p>
                 </div>
 
-                <a href="#" class="cta-button">Get in touch</a>
+                <!-- Кнопка, по нажатию на которую открывается модальное окно -->
+                <button class="cta-button" id="open-modal-btn">Get in touch</button>
+
+                <!-- Модальное окно (скрыто по умолчанию) -->
+                <div class="modal-overlay" id="modal-overlay">
+                    <div class="modal-window">
+                        <!-- Кнопка "закрыть" (иконка крестика) -->
+                        <button class="modal-close" id="modal-close-btn">&times;</button>
+
+                        <!-- Заголовок и подзаголовок -->
+                        <h2 class="modal-title">Get in Touch With Us</h2>
+                        <p class="modal-subtitle">
+                            We're here to answer your questions and help you find the best energy solutions.
+                        </p>
+
+                        <!-- Форма -->
+                        <form class="modal-form" id="contact-form">
+                            <!-- Full Name -->
+                            <label class="form-label" for="fullname">Full Name</label>
+                            <input class="form-input" type="text" id="fullname" name="fullname" placeholder="Full Name" required>
+
+                            <!-- Email Address -->
+                            <label class="form-label" for="email">Email Address</label>
+                            <input class="form-input" type="email" id="email" name="email" placeholder="Email Address" required>
+
+                            <!-- Phone Number -->
+                            <label class="form-label" for="phone">Phone Number</label>
+                            <input class="form-input" type="tel" id="phone" name="phone" placeholder="Phone Number">
+
+                            <!-- Service Type (Select) -->
+                            <label class="form-label" for="service-type">Service Type</label>
+                            <select class="form-select" id="service-type" name="service-type">
+                                <option value="home-solar">Home Solar Panels</option>
+                                <option value="industry">Industry Panels</option>
+                                <option value="chargers">Chargers</option>
+                                <option value="wind">Wind Power</option>
+                            </select>
+
+                            <!-- Message (Textarea) -->
+                            <label class="form-label" for="message">Message</label>
+                            <textarea class="form-textarea" id="message" name="message" placeholder="Your message here..." rows="4"></textarea>
+
+                            <!-- Preferred Contact Method (Checkboxes) -->
+                            <div class="contact-method">
+                                <span class="contact-label">Preferred Contact Method:</span>
+                                <label>
+                                    <input type="checkbox" name="contact-method" value="email"> Email
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="contact-method" value="phone"> Phone
+                                </label>
+                            </div>
+
+                            <!-- Кнопка отправки -->
+                            <button type="submit" class="modal-submit-btn">Send Message</button>
+                        </form>
+                    </div><!-- /.modal-window -->
+                </div><!-- /.modal-overlay -->
+
 
                 <div class="services-grid">
                     <!-- Service 1 -->
@@ -262,7 +324,6 @@
     </span>
                 </div>
 
-                <!-- Второй элемент (серый) -->
                 <div class="switch-item">
                     <div class="switch-line">
                         <div class="line-grey full"></div>
@@ -315,7 +376,7 @@
             </div>
         </div>
 
-        <!-- Footer navigation -->
+
         <div class="footer-nav">
             <div class="header-left">
                 <div class="logo-bar"></div>
@@ -340,8 +401,6 @@
             </div>
         </div>
     </footer>
-
-
 
 </main>
 

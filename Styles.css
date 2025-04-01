@@ -753,22 +753,27 @@ body {
 
 
 .section-title-features {
-    margin-bottom: 120px;
+    text-align: center;
+    margin-bottom: 114px;
 }
 
 .section-title-features h2 {
-    font-size: 48px;
-    font-weight: 600;
-    margin-bottom: 10px;
+    font-size: 36px;   /* подбираем под дизайн */
+    line-height: 1.2;
+    font-weight: 400;  /* базовый, если не хотим слишком жирный */
+    color: #333;
 }
 
 .section-title-features h2 strong {
+    font-weight: 400;
     color: var(--color-dark);
 }
 
 .section-title-features h2 span {
+    font-weight: 400;
     color: var(--color-light-grey);
 }
+
 
 .features-container {
     max-width: 1200px;
@@ -1030,7 +1035,7 @@ body {
     }
 }
 
-/* --- БАЗОВЫЕ СТИЛИ --- */
+
 * {
     margin: 0;
     padding: 0;
@@ -1102,11 +1107,150 @@ body {
     background-color: var(--color-green);
     color: var(--color-light);
     text-decoration: none;
-    padding: 12px 30px;
+    padding: 7px 30px;
     border-radius: 30px;
     font-size: 16px;
     width: fit-content;
 }
+
+
+
+/* ----- Оверлей (полупрозрачный задний фон) ----- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: none; /* скрыт по умолчанию */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Когда добавляем класс .open, делаем видимым */
+.modal-overlay.open {
+    display: flex;
+}
+
+/* ----- Содержимое модального окна ----- */
+.modal-window {
+    background-color: var(--color-light);
+    width: 400px; /* Примерная ширина */
+    max-width: 90%; /* Не вылезать на мобильных */
+    border-radius: 22px;
+    padding: 24px 20px 32px;
+    position: relative;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+
+/* Кнопка "X" в правом верхнем углу */
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    font-weight: 700;
+    color: #999;
+    cursor: pointer;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+
+/* Заголовок и подзаголовок */
+.modal-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 10px;
+    color: #000;
+}
+
+.modal-subtitle {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 24px;
+}
+
+/* Стили формы */
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-label {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.form-select {
+    appearance: none; /* Убираем стрелку в некоторых браузерах, можно подправить */
+}
+
+.form-textarea {
+    resize: vertical; /* Разрешаем менять высоту */
+}
+
+/* Preferred Contact Method (чекбоксы) */
+.contact-method {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.contact-label {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Кнопка отправки */
+.modal-submit-btn {
+    align-self: flex-start;
+    background-color: #00D47E;
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Hover эффекты */
+.modal-submit-btn:hover {
+    background-color: #00c06e; /* чуть темнее */
+}
+.modal-close:hover {
+    color: #333;
+}
+
+/* ----- Адаптивность ----- */
+@media (max-width: 480px) {
+    .modal-window {
+        width: 90%;
+        padding: 16px;
+    }
+    .modal-title {
+        font-size: 20px;
+    }
+    .modal-subtitle {
+        font-size: 13px;
+    }
+}
+
 
 /* Автор отзыва */
 .testimonial-author {
@@ -1158,7 +1302,7 @@ body {
         padding: 60px 50px;
     }
     .testimonial-wrapper {
-        flex-direction: column;  /* В столбик */
+        flex-direction: column;
         align-items: flex-start;
         gap: 60px;
     }
@@ -1248,7 +1392,7 @@ body {
     color: var(--color-light-grey);
     display: flex;
     align-items: center;
-    gap: 6px; /* отступ между иконкой и текстом */
+    gap: 6px;
 }
 .switch-label img {
     width: 16px;
@@ -1257,17 +1401,16 @@ body {
 }
 
 
-/* Footer Styles */
+/* ----- Базовые стили футера ----- */
 .footer {
     background-color: var(--color-dark);
     color: var(--color-light);
 }
 
-.logo-text-footer{
-    font-size: 18px;
-    color: var(--color-light);
-}
-
+/* Основной контейнер (верхняя часть футера):
+   - логотип + «фичи»
+   - текст + кнопка
+*/
 .footer-main {
     display: flex;
     justify-content: space-between;
@@ -1275,6 +1418,9 @@ body {
     gap: 40px;
 }
 
+/* Левая часть (footer-content):
+   - Заголовок, фичи (галочки)
+*/
 .footer-content {
     flex: 1;
     max-width: 600px;
@@ -1295,6 +1441,7 @@ body {
     display: flex;
     flex-direction: row;
     gap: 40px;
+    margin-bottom: 20px; /* отступ под блок фич */
 }
 
 .footer-feature {
@@ -1306,7 +1453,7 @@ body {
 .check-icon {
     width: 24px;
     height: 24px;
-    background-color: #00cc88;
+    background-color: var(--color-green);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1316,10 +1463,13 @@ body {
 
 .check-icon:after {
     content: "✓";
-    color: #0e0808;
+    color: var(--color-dark);
     font-weight: bold;
 }
 
+/* Правая часть (footer-cta):
+   - параграф (описание) + кнопка
+*/
 .footer-cta {
     flex: 1;
     max-width: 500px;
@@ -1344,13 +1494,13 @@ body {
     display: inline-block;
 }
 
-/* Footer navigation */
+/* ----- Навигация в нижней части футера ----- */
 .footer-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 25px 21%;
-    border-top: 1px solid #333;
+    border-top: 1px solid #333; /* тонкая линия сверху */
 }
 
 .footer-links .nav-list {
@@ -1383,56 +1533,59 @@ body {
 .social-link img {
     width: 16px;
     height: 16px;
-    filter: brightness(0) invert(1);
+    filter: brightness(0) invert(1); /* Делает иконку белой, если исходная чёрная */
 }
 
-/* Responsive adjustments */
+/* ------ Адаптивность ------ */
+
+/* 1) При ширине <= 1200px уменьшим отступы,
+      разрешим перенос элементов,
+      чтобы не было горизонтального скролла */
+@media (max-width: 1200px) {
+    .footer-main {
+        padding: 60px 5%;
+        flex-wrap: wrap; /* Колонки могут переноситься */
+    }
+    .footer-content,
+    .footer-cta {
+        max-width: 100%;
+        width: 100%;
+    }
+    .footer-features {
+        flex-wrap: wrap; /* Галочки могут уходить на вторую строку */
+    }
+    .footer-nav {
+        padding: 25px 5%;
+    }
+}
+
+
 @media (max-width: 768px) {
     .footer-main {
         flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
         padding: 40px 5%;
     }
-
-    .footer-title {
-        font-size: 2rem;
+    .footer-features {
+        gap: 20px;
+    }
+    .footer-button {
+        margin-bottom: 20px;
     }
 
     .footer-nav {
         flex-direction: column;
+        align-items: flex-start;
         gap: 20px;
-        padding: 20px 5%;
+        padding: 25px 5%;
     }
-
     .footer-links .nav-list {
+        gap: 20px;
         flex-wrap: wrap;
-        justify-content: center;
     }
-}
-
-/* Правая часть: соцсети */
-.footer-right {
-    display: flex;
-    gap: 20px;  /* Расстояние между иконками */
-}
-
-.footer-right a {
-    display: inline-flex;
-    width: 32px;
-    height: 32px;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background-color: transparent; /* или #333, если хотите кружок */
-    transition: background-color 0.2s;
-}
-.footer-right a:hover {
-    background-color: rgba(255,255,255,0.1);
-}
-
-.footer-right img {
-    width: 18px;
-    height: 18px;
-    object-fit: contain;
-    filter: brightness(0) invert(1); /* Чтобы иконки были белые, если исходник темный */
+    .social-links {
+        gap: 10px;
+    }
 }
 
