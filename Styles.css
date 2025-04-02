@@ -424,7 +424,7 @@ body {
         border-top: 1px solid var(--color-light);
         padding: 16px;
     }
-    .nav-list {
+    .nav-list-header {
         flex-direction: column;
         gap: 16px;
     }
@@ -671,10 +671,10 @@ body {
     height: auto;
     margin: 0 auto;
     display: flex;
-    gap: 200px;  /* Расстояние между колонками */
+    gap: 200px;
     align-items: center;
 
-    flex-direction: row;     /* По умолчанию row, можно не писать */
+    flex-direction: row;
 
     justify-content: space-between;
 
@@ -682,14 +682,12 @@ body {
 
 /* Левая часть */
 .quality-left {
-    flex: 1; /* Занимает оставшееся пространство */
-    /* Доп. стили (margin, etc.) */
+    flex: 1;
 }
 
 /* Правая часть */
 .quality-right {
-    flex: 1; /* Тоже 1, чтобы примерно 50/50 с left */
-    /* Или flex: 0 0 400px; если хотите фиксированную ширину */
+    flex: 1;
 }
 
 /* Заголовок слева */
@@ -1407,20 +1405,15 @@ body {
     color: var(--color-light);
 }
 
-/* Основной контейнер (верхняя часть футера):
-   - логотип + «фичи»
-   - текст + кнопка
-*/
+/* Верхняя часть футера */
 .footer-main {
     display: flex;
     justify-content: space-between;
     padding: 60px 21%;
     gap: 40px;
+    flex-wrap: nowrap;
 }
 
-/* Левая часть (footer-content):
-   - Заголовок, фичи (галочки)
-*/
 .footer-content {
     flex: 1;
     max-width: 600px;
@@ -1441,7 +1434,8 @@ body {
     display: flex;
     flex-direction: row;
     gap: 40px;
-    margin-bottom: 20px; /* отступ под блок фич */
+    margin-bottom: 20px;
+    flex-wrap: nowrap;
 }
 
 .footer-feature {
@@ -1458,18 +1452,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
 }
 
-.check-icon:after {
+.check-icon::after {
     content: "✓";
     color: var(--color-dark);
     font-weight: bold;
 }
 
-/* Правая часть (footer-cta):
-   - параграф (описание) + кнопка
-*/
 .footer-cta {
     flex: 1;
     max-width: 500px;
@@ -1494,27 +1484,37 @@ body {
     display: inline-block;
 }
 
-/* ----- Навигация в нижней части футера ----- */
+/* ----- НИЖНЯЯ НАВИГАЦИЯ ФУТЕРА ----- */
 .footer-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 25px 21%;
-    border-top: 1px solid #333; /* тонкая линия сверху */
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 25px 5%;
+    border-top: 1px solid #333;
+    gap: 40px;
 }
 
-.footer-links .nav-list {
+.footer-links .nav-list,
+.footer-links .nav-list-footer {
     display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 30px;
     list-style: none;
-    gap: 50px;
+    padding: 0;
+    margin: 0;
 }
 
 .footer-links .nav-link {
     color: var(--color-light);
     text-decoration: none;
     font-weight: 500;
+    white-space: nowrap;
 }
 
+/* Иконки соцсетей */
 .social-links {
     display: flex;
     gap: 15px;
@@ -1531,61 +1531,64 @@ body {
 }
 
 .social-link img {
-    width: 16px;
-    height: 16px;
-    filter: brightness(0) invert(1); /* Делает иконку белой, если исходная чёрная */
+    width: 32px;
+    height: 32px;
 }
 
-/* ------ Адаптивность ------ */
-
-/* 1) При ширине <= 1200px уменьшим отступы,
-      разрешим перенос элементов,
-      чтобы не было горизонтального скролла */
+/* ------ АДАПТИВНОСТЬ ------ */
 @media (max-width: 1200px) {
     .footer-main {
         padding: 60px 5%;
-        flex-wrap: wrap; /* Колонки могут переноситься */
     }
+
     .footer-content,
     .footer-cta {
         max-width: 100%;
         width: 100%;
     }
+
     .footer-features {
-        flex-wrap: wrap; /* Галочки могут уходить на вторую строку */
+        flex-wrap: wrap;
     }
+
     .footer-nav {
         padding: 25px 5%;
+        flex-wrap: wrap;
     }
 }
-
 
 @media (max-width: 768px) {
     .footer-main {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
+        gap: 30px;
         padding: 40px 5%;
     }
+
     .footer-features {
         gap: 20px;
-    }
-    .footer-button {
-        margin-bottom: 20px;
+        flex-wrap: wrap;
     }
 
     .footer-nav {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         gap: 20px;
-        padding: 25px 5%;
+        text-align: center;
     }
-    .footer-links .nav-list {
-        gap: 20px;
+
+   
+
+    .footer-links .nav-list,
+    .footer-links .nav-list-footer {
+        flex-direction: row;
         flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
     }
+
     .social-links {
-        gap: 10px;
+        justify-content: center;
     }
 }
+
 

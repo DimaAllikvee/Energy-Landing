@@ -41,3 +41,4 @@ document.addEventListener('DOMContentLoaded', () => {
     modalOverlay.classList.remove("open");
 });
 });
+
